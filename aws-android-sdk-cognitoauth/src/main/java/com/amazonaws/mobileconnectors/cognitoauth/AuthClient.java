@@ -570,8 +570,8 @@ public class AuthClient {
 	        if(pool.getCustomTabExtras() != null)
 	            mCustomTabsIntent.intent.putExtras(pool.getCustomTabExtras());
 	        mCustomTabsIntent.intent.setPackage(ClientConstants.CHROME_PACKAGE);
-	        mCustomTabsIntent.intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-	        mCustomTabsIntent.intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+	        // Fix duo
+            mCustomTabsIntent.intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 	        mCustomTabsIntent.launchUrl(context, uri);
     	} catch (final Exception e) {
     		userHandler.onFailure(e);
